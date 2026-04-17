@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Luminary</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold: #C9A84C;
+      --gold-light: #E8C97A;
+      --ink: #0A0907;
+      --paper: #F5F0E8;
+      --warm-gray: #8C8478;
+      --text-body: #C2BAA8;
+      --text-dim: #5C5750;
+      --border: rgba(201, 168, 76, 0.2);
+      --border-focus: rgba(201, 168, 76, 0.5);
+      --field-bg: rgba(255,255,255,0.03);
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background-color: var(--ink);
+      color: var(--text-body);
+      min-height: 100vh;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 24px 48px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: 22px;
+      letter-spacing: 0.12em;
+      color: var(--gold-light);
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    .nav-back {
+      font-size: 13px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-back:hover { color: var(--gold); }
+
+    .contact-wrap {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 80px 48px 120px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    /* Left column */
+    .contact-intro {}
+
+    .legal-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: 52px;
+      line-height: 1.05;
+      color: var(--paper);
+      margin-bottom: 24px;
+    }
+
+    .intro-text {
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 1.8;
+      color: var(--warm-gray);
+      margin-bottom: 40px;
+    }
+
+    .contact-detail {
+      margin-bottom: 20px;
+    }
+
+    .contact-detail-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 6px;
+    }
+
+    .contact-detail-value {
+      font-size: 15px;
+      color: var(--text-body);
+    }
+
+    .contact-detail-value a {
+      color: var(--gold);
+      text-decoration: none;
+    }
+
+    .contact-detail-value a:hover { text-decoration: underline; }
+
+    /* Form */
+    .contact-form {}
+
+    .form-group {
+      margin-bottom: 24px;
+    }
+
+    label {
+      display: block;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 8px;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      background: var(--field-bg);
+      border: 1px solid var(--border);
+      color: var(--paper);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      font-weight: 300;
+      padding: 14px 16px;
+      border-radius: 0;
+      outline: none;
+      transition: border-color 0.2s;
+      -webkit-appearance: none;
+    }
+
+    input::placeholder, textarea::placeholder {
+      color: var(--text-dim);
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--border-focus);
+    }
+
+    select {
+      cursor: pointer;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23C9A84C' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 16px center;
+      padding-right: 40px;
+    }
+
+    select option {
+      background: #1a1610;
+      color: var(--paper);
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 140px;
+      line-height: 1.6;
+    }
+
+    .btn-submit {
+      width: 100%;
+      padding: 16px;
+      background: var(--gold);
+      color: var(--ink);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      border-radius: 0;
+    }
+
+    .btn-submit:hover {
+      background: var(--gold-light);
+      transform: translateY(-1px);
+    }
+
+    .btn-submit:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .form-note {
+      font-size: 12px;
+      color: var(--text-dim);
+      margin-top: 12px;
+      line-height: 1.6;
+    }
+
+    /* Success / error states */
+    .form-message {
+      display: none;
+      padding: 16px;
+      border: 1px solid var(--border);
+      font-size: 14px;
+      line-height: 1.6;
+      margin-top: 16px;
+    }
+
+    .form-message.success {
+      border-color: rgba(100, 180, 100, 0.3);
+      color: #8dc898;
+      background: rgba(100, 180, 100, 0.05);
+    }
+
+    .form-message.error {
+      border-color: rgba(200, 80, 80, 0.3);
+      color: #c88888;
+      background: rgba(200, 80, 80, 0.05);
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: 18px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+
+    .footer-links a {
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--gold); }
+
+    @media (max-width: 768px) {
+      nav { padding: 20px 24px; }
+      .contact-wrap { grid-template-columns: 1fr; gap: 48px; padding: 48px 24px 80px; }
+      h1 { font-size: 38px; }
+      footer { padding: 24px; flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="/" class="nav-logo">Luminary</a>
+    <a href="/" class="nav-back">← Back</a>
+  </nav>
+
+  <div class="contact-wrap">
+
+    <!-- Left: Intro -->
+    <div class="contact-intro">
+      <p class="legal-label">Get in touch</p>
+      <h1>Contact</h1>
+      <p class="intro-text">Have a question about Luminary, a subscription issue, or feedback on the app? We'd love to hear from you.</p>
+
+      <div class="contact-detail">
+        <p class="contact-detail-label">Email</p>
+        <p class="contact-detail-value"><a href="mailto:hello@luminarybible.com">hello@luminarybible.com</a></p>
+      </div>
+
+      <div class="contact-detail">
+        <p class="contact-detail-label">Response time</p>
+        <p class="contact-detail-value">Usually within 1–2 business days</p>
+      </div>
+
+      <div class="contact-detail">
+        <p class="contact-detail-label">Legal & privacy</p>
+        <p class="contact-detail-value">
+          <a href="/privacy.html">Privacy Policy</a> · <a href="/terms.html">Terms of Service</a>
+        </p>
+      </div>
+    </div>
+
+    <!-- Right: Form -->
+    <div class="contact-form">
+      <!--
+        SETUP INSTRUCTIONS:
+        1. Go to https://formspree.io and create a free account
+        2. Create a new form — it will give you a form endpoint like https://formspree.io/f/xyzabcde
+        3. Replace YOUR_FORMSPREE_ID below with that ID
+        Formspree free plan: 50 submissions/month, no backend needed
+      -->
+      <form id="contactForm" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
+
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Your name" required>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="your@email.com" required>
+        </div>
+
+        <div class="form-group">
+          <label for="subject">Subject</label>
+          <select id="subject" name="subject" required>
+            <option value="" disabled selected>Select a topic</option>
+            <option value="General question">General question</option>
+            <option value="Subscription / billing">Subscription / billing</option>
+            <option value="Technical issue">Technical issue</option>
+            <option value="Content feedback">Content feedback</option>
+            <option value="Privacy / data request">Privacy / data request</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="How can we help?" required></textarea>
+        </div>
+
+        <button type="submit" class="btn-submit" id="submitBtn">Send Message</button>
+        <p class="form-note">We read every message personally. Your information is never shared with third parties.</p>
+
+        <div class="form-message success" id="successMsg">
+          ✓ &nbsp; Message sent. We'll get back to you within 1–2 business days.
+        </div>
+        <div class="form-message error" id="errorMsg">
+          Something went wrong. Please try again or email us directly at <a href="mailto:hello@luminarybible.com">hello@luminarybible.com</a>.
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    <span class="footer-logo">Luminary</span>
+    <ul class="footer-links">
+      <li><a href="/privacy.html">Privacy</a></li>
+      <li><a href="/terms.html">Terms</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+    </ul>
+  </footer>
+
+  <script>
+    const form = document.getElementById('contactForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const successMsg = document.getElementById('successMsg');
+    const errorMsg = document.getElementById('errorMsg');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending…';
+      successMsg.style.display = 'none';
+      errorMsg.style.display = 'none';
+
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (res.ok) {
+          form.reset();
+          successMsg.style.display = 'block';
+          submitBtn.textContent = 'Message Sent';
+        } else {
+          throw new Error('Server error');
+        }
+      } catch {
+        errorMsg.style.display = 'block';
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send Message';
+      }
+    });
+  </script>
+
+</body>
+</html>
