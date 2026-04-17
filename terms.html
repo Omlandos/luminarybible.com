@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms of Service – Luminary</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg:        #0D0A06;
+      --bg-alt:    #1C1610;
+      --surface:   #242018;
+      --gold:      #C9A84C;
+      --gold-light:#E8D5A3;
+      --text:      #F5F0E8;
+      --muted:     #A89B8C;
+      --border:    #3A3020;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 1.8;
+      min-height: 100vh;
+    }
+
+    header {
+      background: var(--bg-alt);
+      border-bottom: 1px solid var(--border);
+      padding: 32px 24px;
+      text-align: center;
+    }
+
+    .app-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 14px;
+      font-weight: 400;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+
+    header h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(32px, 6vw, 52px);
+      font-weight: 600;
+      color: var(--gold-light);
+      line-height: 1.15;
+      margin-bottom: 12px;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      font-size: 14px;
+      letter-spacing: 0.5px;
+    }
+
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      justify-content: center;
+      margin: 20px auto 0;
+    }
+    .divider-line { width: 40px; height: 1px; background: var(--gold); opacity: 0.4; }
+    .divider-star { color: var(--gold); font-size: 12px; opacity: 0.7; }
+
+    main {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 60px 24px 100px;
+    }
+
+    .intro-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--gold);
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin-bottom: 56px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    section {
+      margin-bottom: 52px;
+    }
+
+    section h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px;
+      font-weight: 600;
+      color: var(--gold-light);
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    section h3 {
+      font-family: 'Jost', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin: 28px 0 10px;
+    }
+
+    p {
+      color: var(--muted);
+      margin-bottom: 14px;
+      font-size: 15px;
+    }
+
+    ul {
+      list-style: none;
+      margin: 10px 0 16px;
+      padding: 0;
+    }
+
+    ul li {
+      color: var(--muted);
+      font-size: 15px;
+      padding: 5px 0 5px 20px;
+      position: relative;
+    }
+
+    ul li::before {
+      content: '✦';
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      font-size: 9px;
+      top: 8px;
+    }
+
+    a {
+      color: var(--gold);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+    a:hover { border-bottom-color: var(--gold); }
+
+    strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    /* Tier comparison */
+    .tier-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 20px 0;
+    }
+
+    @media (max-width: 500px) {
+      .tier-grid { grid-template-columns: 1fr; }
+    }
+
+    .tier-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+    }
+
+    .tier-card.premium {
+      border-color: var(--gold);
+    }
+
+    .tier-label {
+      font-family: 'Jost', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+
+    .tier-card ul { margin: 0; }
+
+    /* Warning box */
+    .warning-box {
+      background: rgba(201, 168, 76, 0.08);
+      border: 1px solid rgba(201, 168, 76, 0.3);
+      border-radius: 10px;
+      padding: 18px 22px;
+      margin: 16px 0;
+    }
+
+    .warning-box p {
+      margin: 0;
+      font-size: 14px;
+    }
+
+    .contact-box {
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px;
+      text-align: center;
+      margin-top: 56px;
+    }
+
+    .contact-box h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px;
+      color: var(--gold-light);
+      border: none;
+      padding: 0;
+      margin-bottom: 10px;
+    }
+
+    .contact-box p { margin-bottom: 16px; }
+
+    .contact-email {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--bg);
+      font-family: 'Jost', sans-serif;
+      font-weight: 500;
+      font-size: 14px;
+      letter-spacing: 0.5px;
+      padding: 12px 28px;
+      border-radius: 8px;
+      text-decoration: none;
+      border: none;
+      transition: opacity 0.2s;
+    }
+    .contact-email:hover { opacity: 0.85; border: none; }
+
+    footer {
+      text-align: center;
+      padding: 32px 24px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    footer a { font-size: 13px; }
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="app-name">Luminary</div>
+  <h1>Terms of Service</h1>
+  <p class="subtitle">Effective date: April 7, 2026 &nbsp;·&nbsp; Last updated: April 7, 2026</p>
+  <div class="divider">
+    <div class="divider-line"></div>
+    <span class="divider-star">✦</span>
+    <div class="divider-line"></div>
+  </div>
+</header>
+
+<main>
+
+  <div class="intro-box">
+    These Terms of Service ("Terms") govern your use of the Luminary mobile application ("App"), operated by Olav Omland ("we", "us", or "our"), a private individual based in Norway. By downloading or using Luminary, you agree to be bound by these Terms. If you do not agree, please do not use the App.
+  </div>
+
+  <section>
+    <h2>1. Eligibility</h2>
+    <p>You must be at least 13 years of age to use Luminary. If you are under 18, you confirm that you have obtained parental or guardian consent. By using the App, you represent that you meet these requirements.</p>
+  </section>
+
+  <section>
+    <h2>2. Account Registration</h2>
+    <p>To access certain features, you must create an account. You agree to:</p>
+    <ul>
+      <li>Provide accurate and truthful information during registration</li>
+      <li>Keep your login credentials secure and confidential</li>
+      <li>Notify us immediately if you suspect unauthorised access to your account</li>
+      <li>Be responsible for all activity that occurs under your account</li>
+    </ul>
+    <p>We reserve the right to suspend or terminate accounts that violate these Terms.</p>
+  </section>
+
+  <section>
+    <h2>3. Free and Premium Access</h2>
+    <p>Luminary offers two tiers of access:</p>
+
+    <div class="tier-grid">
+      <div class="tier-card">
+        <div class="tier-label">Free Tier</div>
+        <ul>
+          <li>Today's animated chapter (updated regularly)</li>
+          <li>Full Bible reading access</li>
+          <li>Verse of the Day</li>
+          <li>Ads displayed during use</li>
+        </ul>
+      </div>
+      <div class="tier-card premium">
+        <div class="tier-label">✦ Premium</div>
+        <ul>
+          <li>Full animated video archive</li>
+          <li>Reading plans and progress tracking</li>
+          <li>Chapter notes and bookmarks</li>
+          <li>Daily reflection journal</li>
+          <li>Ad-free experience</li>
+        </ul>
+      </div>
+    </div>
+
+    <p>We reserve the right to change what is included in each tier at any time, with reasonable notice provided to existing subscribers.</p>
+  </section>
+
+  <section>
+    <h2>4. Subscriptions and Payments</h2>
+
+    <h3>Pricing</h3>
+    <p>Premium subscriptions are available on a monthly or annual basis. Current pricing is displayed in the App at the time of purchase. Prices may vary by region and are subject to change.</p>
+
+    <h3>Billing</h3>
+    <p>Payments are processed through Apple App Store or Google Play Store. Your subscription will automatically renew at the end of each billing period unless cancelled at least 24 hours before the renewal date. We do not have access to your payment card details.</p>
+
+    <h3>Free Trial</h3>
+    <p>We may offer a free trial period for new subscribers. If you do not cancel before the trial ends, you will be charged the applicable subscription price. The trial is available once per Apple ID or Google account.</p>
+
+    <h3>Refunds</h3>
+    <p>All purchases are processed by Apple or Google and are subject to their respective refund policies. We are unable to issue refunds directly. Please contact Apple Support or Google Play Support for refund requests.</p>
+
+    <h3>Cancellation</h3>
+    <p>You may cancel your subscription at any time through your device's subscription settings (App Store or Google Play). Cancellation takes effect at the end of the current billing period. You will retain access to Premium features until then.</p>
+  </section>
+
+  <section>
+    <h2>5. Acceptable Use</h2>
+    <p>You agree not to use Luminary in any way that:</p>
+    <ul>
+      <li>Violates any applicable law or regulation</li>
+      <li>Infringes upon the rights of others</li>
+      <li>Attempts to reverse engineer, decompile, or extract the source code of the App</li>
+      <li>Attempts to bypass or circumvent subscription restrictions</li>
+      <li>Introduces malware, viruses, or other harmful code</li>
+      <li>Scrapes, harvests, or collects data from the App without our written permission</li>
+      <li>Uses the App for commercial purposes without our express consent</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>6. Intellectual Property</h2>
+
+    <h3>Our Content</h3>
+    <p>All content within Luminary — including AI-generated videos, narration, app design, graphics, and written content — is owned by or licensed to us. You may not copy, reproduce, distribute, or create derivative works from our content without prior written permission.</p>
+
+    <h3>Bible Text</h3>
+    <p>The King James Version (KJV) of the Bible used in this App is in the public domain.</p>
+
+    <h3>Your Content</h3>
+    <p>Content you create within the App — such as personal reflections and chapter notes — remains yours. You grant us a limited licence to store and display this content solely for the purpose of providing the service to you.</p>
+  </section>
+
+  <section>
+    <h2>7. AI-Generated Content</h2>
+    <p>The animated videos in Luminary are produced using artificial intelligence tools. While we strive for accuracy and reverence in our depictions of biblical narratives, AI-generated content may contain imperfections. The videos are intended for inspirational and devotional purposes and should not be taken as scholarly or theological authority.</p>
+  </section>
+
+  <section>
+    <h2>8. Advertisements</h2>
+    <p>Free-tier users will see advertisements delivered by Google AdMob. These ads are served based on general device information and may be personalised in accordance with Google's advertising policies. Premium subscribers do not see advertisements.</p>
+  </section>
+
+  <section>
+    <h2>9. Disclaimer of Warranties</h2>
+    <div class="warning-box">
+      <p>Luminary is provided "as is" and "as available" without warranties of any kind, either express or implied. We do not guarantee that the App will be uninterrupted, error-free, or free of harmful components. Your use of the App is at your own risk.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>10. Limitation of Liability</h2>
+    <p>To the fullest extent permitted by applicable law, we shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of or inability to use the App, even if we have been advised of the possibility of such damages.</p>
+    <p>Our total liability to you for any claims arising under these Terms shall not exceed the amount you paid us in the 12 months preceding the claim.</p>
+  </section>
+
+  <section>
+    <h2>11. Termination</h2>
+    <p>We reserve the right to suspend or terminate your access to Luminary at our discretion, with or without notice, if we believe you have violated these Terms or engaged in conduct harmful to other users or the App.</p>
+    <p>You may delete your account at any time through the App settings. Upon deletion, your personal data will be removed in accordance with our <a href="privacy.html">Privacy Policy</a>.</p>
+  </section>
+
+  <section>
+    <h2>12. Governing Law and Disputes</h2>
+    <p>These Terms are governed by the laws of Norway. Any disputes arising from or related to these Terms or your use of the App shall be subject to the exclusive jurisdiction of the Norwegian courts.</p>
+    <p>We encourage you to contact us first at <a href="mailto:contact@luminarybible.com">contact@luminarybible.com</a> to resolve any dispute informally before pursuing legal action.</p>
+  </section>
+
+  <section>
+    <h2>13. Changes to These Terms</h2>
+    <p>We may update these Terms at any time. When we make material changes, we will notify you through the App or by email. The "Last updated" date at the top of this page will reflect the most recent revision.</p>
+    <p>Your continued use of the App after changes are posted constitutes your acceptance of the updated Terms.</p>
+  </section>
+
+  <div class="contact-box">
+    <h2>Questions?</h2>
+    <p>If you have any questions about these Terms of Service, please reach out:</p>
+    <a href="mailto:contact@luminarybible.com" class="contact-email">contact@luminarybible.com</a>
+  </div>
+
+</main>
+
+<footer>
+  <div class="footer-links">
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="terms.html">Terms of Service</a>
+    <a href="mailto:contact@luminarybible.com">Contact</a>
+  </div>
+  <p>© 2026 Luminary · Olav Omland · Norway</p>
+</footer>
+
+</body>
+</html>
