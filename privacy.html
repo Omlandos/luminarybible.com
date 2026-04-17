@@ -20,7 +20,6 @@
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     html { scroll-behavior: smooth; }
 
     body {
@@ -31,6 +30,58 @@
       font-size: 16px;
       line-height: 1.8;
       min-height: 100vh;
+    }
+
+    /* ── Nav ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(13, 10, 6, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 32px;
+      height: 56px;
+    }
+
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      font-weight: 400;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-decoration: none;
+    }
+
+    .nav-back {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Jost', sans-serif;
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-back:hover { color: var(--gold-light); }
+
+    .nav-back svg {
+      width: 14px;
+      height: 14px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
     }
 
     /* ── Header ── */
@@ -60,11 +111,7 @@
       margin-bottom: 12px;
     }
 
-    .subtitle {
-      color: var(--muted);
-      font-size: 14px;
-      letter-spacing: 0.5px;
-    }
+    .subtitle { color: var(--muted); font-size: 14px; letter-spacing: 0.5px; }
 
     .divider {
       display: flex;
@@ -77,13 +124,8 @@
     .divider-star { color: var(--gold); font-size: 12px; opacity: 0.7; }
 
     /* ── Layout ── */
-    main {
-      max-width: 760px;
-      margin: 0 auto;
-      padding: 60px 24px 100px;
-    }
+    main { max-width: 760px; margin: 0 auto; padding: 60px 24px 100px; }
 
-    /* ── Intro box ── */
     .intro-box {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -95,10 +137,7 @@
       font-size: 15px;
     }
 
-    /* ── Sections ── */
-    section {
-      margin-bottom: 52px;
-    }
+    section { margin-bottom: 52px; }
 
     section h2 {
       font-family: 'Cormorant Garamond', serif;
@@ -120,17 +159,9 @@
       margin: 28px 0 10px;
     }
 
-    p {
-      color: var(--muted);
-      margin-bottom: 14px;
-      font-size: 15px;
-    }
+    p { color: var(--muted); margin-bottom: 14px; font-size: 15px; }
 
-    ul {
-      list-style: none;
-      margin: 10px 0 16px;
-      padding: 0;
-    }
+    ul { list-style: none; margin: 10px 0 16px; padding: 0; }
 
     ul li {
       color: var(--muted);
@@ -148,65 +179,17 @@
       top: 8px;
     }
 
-    a {
-      color: var(--gold);
-      text-decoration: none;
-      border-bottom: 1px solid transparent;
-      transition: border-color 0.2s;
-    }
-
+    a { color: var(--gold); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s; }
     a:hover { border-bottom-color: var(--gold); }
 
-    /* ── Service cards ── */
-    .service-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 14px;
-      margin: 16px 0;
-    }
+    .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin: 16px 0; }
 
-    .service-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 16px 18px;
-    }
+    .service-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 16px 18px; }
+    .service-card .name { font-family: 'Jost', sans-serif; font-weight: 500; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; color: var(--gold); margin-bottom: 4px; }
+    .service-card .desc { font-size: 13px; color: var(--muted); margin: 0; }
 
-    .service-card .name {
-      font-family: 'Jost', sans-serif;
-      font-weight: 500;
-      font-size: 13px;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 4px;
-    }
-
-    .service-card .desc {
-      font-size: 13px;
-      color: var(--muted);
-      margin: 0;
-    }
-
-    /* ── Contact box ── */
-    .contact-box {
-      background: var(--bg-alt);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 28px;
-      text-align: center;
-      margin-top: 56px;
-    }
-
-    .contact-box h2 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 24px;
-      color: var(--gold-light);
-      border: none;
-      padding: 0;
-      margin-bottom: 10px;
-    }
-
+    .contact-box { background: var(--bg-alt); border: 1px solid var(--border); border-radius: 12px; padding: 28px; text-align: center; margin-top: 56px; }
+    .contact-box h2 { font-family: 'Cormorant Garamond', serif; font-size: 24px; color: var(--gold-light); border: none; padding: 0; margin-bottom: 10px; }
     .contact-box p { margin-bottom: 16px; }
 
     .contact-email {
@@ -225,27 +208,20 @@
     }
     .contact-email:hover { opacity: 0.85; border: none; }
 
-    /* ── Footer ── */
-    footer {
-      text-align: center;
-      padding: 32px 24px;
-      border-top: 1px solid var(--border);
-      color: var(--muted);
-      font-size: 13px;
-    }
-
+    footer { text-align: center; padding: 32px 24px; border-top: 1px solid var(--border); color: var(--muted); font-size: 13px; }
     footer a { font-size: 13px; }
-
-    .footer-links {
-      display: flex;
-      gap: 24px;
-      justify-content: center;
-      margin-bottom: 12px;
-      flex-wrap: wrap;
-    }
+    .footer-links { display: flex; gap: 24px; justify-content: center; margin-bottom: 12px; flex-wrap: wrap; }
   </style>
 </head>
 <body>
+
+<nav>
+  <a href="/" class="nav-logo">Luminary</a>
+  <a href="/" class="nav-back">
+    <svg viewBox="0 0 16 16"><polyline points="10 4 6 8 10 12"/></svg>
+    Back to home
+  </a>
+</nav>
 
 <header>
   <div class="app-name">Luminary</div>
@@ -266,7 +242,6 @@
 
   <section>
     <h2>1. Information We Collect</h2>
-
     <h3>Information You Provide</h3>
     <ul>
       <li>Email address and password when you create an account</li>
@@ -274,7 +249,6 @@
       <li>Profile picture if you upload or select one</li>
       <li>Daily reflections and chapter notes you write within the app</li>
     </ul>
-
     <h3>Information Collected Automatically</h3>
     <ul>
       <li>Chapters you have marked as completed</li>
@@ -284,7 +258,6 @@
       <li>Subscription and purchase history</li>
       <li>Basic device information required for push notifications</li>
     </ul>
-
     <h3>Information We Do Not Collect</h3>
     <p>We do not collect your precise location, contacts, browsing history outside the app, or any sensitive personal data beyond what is listed above.</p>
   </section>
@@ -307,7 +280,6 @@
   <section>
     <h2>3. Third-Party Services</h2>
     <p>Luminary uses the following third-party services. Each service has its own privacy policy which we encourage you to review:</p>
-
     <div class="service-grid">
       <div class="service-card">
         <div class="name">Supabase</div>
@@ -379,8 +351,9 @@
 
 <footer>
   <div class="footer-links">
-    <a href="privacy.html">Privacy Policy</a>
-    <a href="terms.html">Terms of Service</a>
+    <a href="/">Home</a>
+    <a href="/privacy.html">Privacy Policy</a>
+    <a href="/terms.html">Terms of Service</a>
     <a href="mailto:contact@luminarybible.com">Contact</a>
   </div>
   <p>© 2026 Luminary · Norway · <a href="https://www.datatilsynet.no" target="_blank">Datatilsynet</a></p>
