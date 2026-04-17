@@ -20,7 +20,6 @@
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     html { scroll-behavior: smooth; }
 
     body {
@@ -33,6 +32,59 @@
       min-height: 100vh;
     }
 
+    /* ── Nav ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(13, 10, 6, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 32px;
+      height: 56px;
+    }
+
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      font-weight: 400;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-decoration: none;
+    }
+
+    .nav-back {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Jost', sans-serif;
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-back:hover { color: var(--gold-light); }
+
+    .nav-back svg {
+      width: 14px;
+      height: 14px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* ── Header ── */
     header {
       background: var(--bg-alt);
       border-bottom: 1px solid var(--border);
@@ -59,27 +111,13 @@
       margin-bottom: 12px;
     }
 
-    .subtitle {
-      color: var(--muted);
-      font-size: 14px;
-      letter-spacing: 0.5px;
-    }
+    .subtitle { color: var(--muted); font-size: 14px; letter-spacing: 0.5px; }
 
-    .divider {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      justify-content: center;
-      margin: 20px auto 0;
-    }
+    .divider { display: flex; align-items: center; gap: 12px; justify-content: center; margin: 20px auto 0; }
     .divider-line { width: 40px; height: 1px; background: var(--gold); opacity: 0.4; }
     .divider-star { color: var(--gold); font-size: 12px; opacity: 0.7; }
 
-    main {
-      max-width: 760px;
-      margin: 0 auto;
-      padding: 60px 24px 100px;
-    }
+    main { max-width: 760px; margin: 0 auto; padding: 60px 24px 100px; }
 
     .intro-box {
       background: var(--surface);
@@ -92,9 +130,7 @@
       font-size: 15px;
     }
 
-    section {
-      margin-bottom: 52px;
-    }
+    section { margin-bottom: 52px; }
 
     section h2 {
       font-family: 'Cormorant Garamond', serif;
@@ -116,114 +152,30 @@
       margin: 28px 0 10px;
     }
 
-    p {
-      color: var(--muted);
-      margin-bottom: 14px;
-      font-size: 15px;
-    }
+    p { color: var(--muted); margin-bottom: 14px; font-size: 15px; }
 
-    ul {
-      list-style: none;
-      margin: 10px 0 16px;
-      padding: 0;
-    }
+    ul { list-style: none; margin: 10px 0 16px; padding: 0; }
+    ul li { color: var(--muted); font-size: 15px; padding: 5px 0 5px 20px; position: relative; }
+    ul li::before { content: '✦'; position: absolute; left: 0; color: var(--gold); font-size: 9px; top: 8px; }
 
-    ul li {
-      color: var(--muted);
-      font-size: 15px;
-      padding: 5px 0 5px 20px;
-      position: relative;
-    }
-
-    ul li::before {
-      content: '✦';
-      position: absolute;
-      left: 0;
-      color: var(--gold);
-      font-size: 9px;
-      top: 8px;
-    }
-
-    a {
-      color: var(--gold);
-      text-decoration: none;
-      border-bottom: 1px solid transparent;
-      transition: border-color 0.2s;
-    }
+    a { color: var(--gold); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s; }
     a:hover { border-bottom-color: var(--gold); }
 
-    strong {
-      color: var(--text);
-      font-weight: 500;
-    }
+    strong { color: var(--text); font-weight: 500; }
 
-    /* Tier comparison */
-    .tier-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-      margin: 20px 0;
-    }
+    .tier-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 20px 0; }
+    @media (max-width: 500px) { .tier-grid { grid-template-columns: 1fr; } }
 
-    @media (max-width: 500px) {
-      .tier-grid { grid-template-columns: 1fr; }
-    }
-
-    .tier-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 20px;
-    }
-
-    .tier-card.premium {
-      border-color: var(--gold);
-    }
-
-    .tier-label {
-      font-family: 'Jost', sans-serif;
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 12px;
-    }
-
+    .tier-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 20px; }
+    .tier-card.premium { border-color: var(--gold); }
+    .tier-label { font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
     .tier-card ul { margin: 0; }
 
-    /* Warning box */
-    .warning-box {
-      background: rgba(201, 168, 76, 0.08);
-      border: 1px solid rgba(201, 168, 76, 0.3);
-      border-radius: 10px;
-      padding: 18px 22px;
-      margin: 16px 0;
-    }
+    .warning-box { background: rgba(201, 168, 76, 0.08); border: 1px solid rgba(201, 168, 76, 0.3); border-radius: 10px; padding: 18px 22px; margin: 16px 0; }
+    .warning-box p { margin: 0; font-size: 14px; }
 
-    .warning-box p {
-      margin: 0;
-      font-size: 14px;
-    }
-
-    .contact-box {
-      background: var(--bg-alt);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 28px;
-      text-align: center;
-      margin-top: 56px;
-    }
-
-    .contact-box h2 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 24px;
-      color: var(--gold-light);
-      border: none;
-      padding: 0;
-      margin-bottom: 10px;
-    }
-
+    .contact-box { background: var(--bg-alt); border: 1px solid var(--border); border-radius: 12px; padding: 28px; text-align: center; margin-top: 56px; }
+    .contact-box h2 { font-family: 'Cormorant Garamond', serif; font-size: 24px; color: var(--gold-light); border: none; padding: 0; margin-bottom: 10px; }
     .contact-box p { margin-bottom: 16px; }
 
     .contact-email {
@@ -242,26 +194,20 @@
     }
     .contact-email:hover { opacity: 0.85; border: none; }
 
-    footer {
-      text-align: center;
-      padding: 32px 24px;
-      border-top: 1px solid var(--border);
-      color: var(--muted);
-      font-size: 13px;
-    }
-
+    footer { text-align: center; padding: 32px 24px; border-top: 1px solid var(--border); color: var(--muted); font-size: 13px; }
     footer a { font-size: 13px; }
-
-    .footer-links {
-      display: flex;
-      gap: 24px;
-      justify-content: center;
-      margin-bottom: 12px;
-      flex-wrap: wrap;
-    }
+    .footer-links { display: flex; gap: 24px; justify-content: center; margin-bottom: 12px; flex-wrap: wrap; }
   </style>
 </head>
 <body>
+
+<nav>
+  <a href="/" class="nav-logo">Luminary</a>
+  <a href="/" class="nav-back">
+    <svg viewBox="0 0 16 16"><polyline points="10 4 6 8 10 12"/></svg>
+    Back to home
+  </a>
+</nav>
 
 <header>
   <div class="app-name">Luminary</div>
@@ -300,7 +246,6 @@
   <section>
     <h2>3. Free and Premium Access</h2>
     <p>Luminary offers two tiers of access:</p>
-
     <div class="tier-grid">
       <div class="tier-card">
         <div class="tier-label">Free Tier</div>
@@ -322,25 +267,19 @@
         </ul>
       </div>
     </div>
-
     <p>We reserve the right to change what is included in each tier at any time, with reasonable notice provided to existing subscribers.</p>
   </section>
 
   <section>
     <h2>4. Subscriptions and Payments</h2>
-
     <h3>Pricing</h3>
     <p>Premium subscriptions are available on a monthly or annual basis. Current pricing is displayed in the App at the time of purchase. Prices may vary by region and are subject to change.</p>
-
     <h3>Billing</h3>
     <p>Payments are processed through Apple App Store or Google Play Store. Your subscription will automatically renew at the end of each billing period unless cancelled at least 24 hours before the renewal date. We do not have access to your payment card details.</p>
-
     <h3>Free Trial</h3>
     <p>We may offer a free trial period for new subscribers. If you do not cancel before the trial ends, you will be charged the applicable subscription price. The trial is available once per Apple ID or Google account.</p>
-
     <h3>Refunds</h3>
     <p>All purchases are processed by Apple or Google and are subject to their respective refund policies. We are unable to issue refunds directly. Please contact Apple Support or Google Play Support for refund requests.</p>
-
     <h3>Cancellation</h3>
     <p>You may cancel your subscription at any time through your device's subscription settings (App Store or Google Play). Cancellation takes effect at the end of the current billing period. You will retain access to Premium features until then.</p>
   </section>
@@ -361,13 +300,10 @@
 
   <section>
     <h2>6. Intellectual Property</h2>
-
     <h3>Our Content</h3>
     <p>All content within Luminary — including AI-generated videos, narration, app design, graphics, and written content — is owned by or licensed to us. You may not copy, reproduce, distribute, or create derivative works from our content without prior written permission.</p>
-
     <h3>Bible Text</h3>
     <p>The King James Version (KJV) of the Bible used in this App is in the public domain.</p>
-
     <h3>Your Content</h3>
     <p>Content you create within the App — such as personal reflections and chapter notes — remains yours. You grant us a limited licence to store and display this content solely for the purpose of providing the service to you.</p>
   </section>
@@ -398,7 +334,7 @@
   <section>
     <h2>11. Termination</h2>
     <p>We reserve the right to suspend or terminate your access to Luminary at our discretion, with or without notice, if we believe you have violated these Terms or engaged in conduct harmful to other users or the App.</p>
-    <p>You may delete your account at any time through the App settings. Upon deletion, your personal data will be removed in accordance with our <a href="privacy.html">Privacy Policy</a>.</p>
+    <p>You may delete your account at any time through the App settings. Upon deletion, your personal data will be removed in accordance with our <a href="/privacy.html">Privacy Policy</a>.</p>
   </section>
 
   <section>
@@ -423,8 +359,9 @@
 
 <footer>
   <div class="footer-links">
-    <a href="privacy.html">Privacy Policy</a>
-    <a href="terms.html">Terms of Service</a>
+    <a href="/">Home</a>
+    <a href="/privacy.html">Privacy Policy</a>
+    <a href="/terms.html">Terms of Service</a>
     <a href="mailto:contact@luminarybible.com">Contact</a>
   </div>
   <p>© 2026 Luminary · Norway</p>
